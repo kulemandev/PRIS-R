@@ -1,0 +1,14 @@
+feature,description,unit_or_format,value_type,Comments
+time_s,Simulation-relative time from the beginning of the STG scenario,seconds(250ms interval),numeric,Generated during STG scenario construction using 0.25 s sampling
+CI,cell identifier,cell code,integer categorical,Derived from raw RBC traces. it is a Graph node identifier  
+gnb,5G gNB identifier associated with the cell,integer categorical,integer categorical,loaded from cell_gnb_relation.csv
+density,Number of active trains occupying the cell at the given time,count,integer,Count of active per-train rows grouped by time_s and CI
+train_ids,train identifiers ,serialized list of integers,string/list,
+CES_count,Number of active trains with Conditional Emergency Stop state in the cell,count,integer,Sum of train-level CES flags grouped by time_s and CI (Cell-level safety state)
+EStop_count,Number of active trains with Emergency Stop state in the cell,count,integer,Sum of train-level EStop flags grouped by time_s and CI (Cell-level safety state)
+avg_speed_kmh,Mean speed of active trains in the cell,km/h,numeric,Cell-level mobility feature
+critical_DL_sum,Total critical-slice downlink traffic demand in the cell,kb per 0.25 s step,numeric,aggregate of Generated FRMCS application traffic from FRMCS traffic model 
+critical_UL_sum,Total critical-slice uplink traffic demand in the cell,kb per 0.25 s step,numeric,
+perform_DL_sum,Total performance-slice downlink traffic demand in the cell,kb per 0.25 s step,numeric,
+perform_UL_sum,Total performance-slice uplink traffic demand in the cell,kb per 0.25 s step,numeric,
+total_traffic_sum,Total traffic demand across critical and performance slices in both directions,kb per 0.25 s step,numeric,

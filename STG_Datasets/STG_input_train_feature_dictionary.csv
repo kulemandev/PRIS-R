@@ -1,0 +1,56 @@
+feature,description,unit_or_format,value_type,Comments
+train_id,train identifier,integer,integer categorical,unique in STG scenario of the dataset
+direction,Train travelling direction label,up or dn,categorical string,dn=down means going toward paris and up means going toward city of rennes
+track,Track assignment used in the track-aware scenario,trackA or trackB,categorical string,when mutliple track area (Present in STGdata_C input train files only )
+step,Discrete simulation step index,step count,integer,introduced to follow simulation iteration
+time_s,Simulation-relative time from the beginning of the STG scenario,seconds(250ms interval),numeric,Generated during STG scenario construction using 0.25 s sampling
+pos,Position index within the source train trace,row index,integer,
+CI,cell identifier,cell code,integer categorical,Derived from raw RBC traces. it is a Graph node identifier  
+gnb,5G gNB identifier associated with the cell,integer categorical,integer categorical,loaded from cell_gnb_relation.csv
+D_LRBG,Distance to the last relevant balise group,meters,numeric,Extracted from raw ETCS dataset
+HO_state,Derived handover state from raw dataset,0 to 3,integer categorical,0 none 1 HO command 2 HO detect 3 HO complete or performed
+Neighbor_Cell,Next cell in the train cell succession,cell code or -1,integer categorical,Derived from contiguous CI runs in the train trace
+CQI_wb,Wideband downlink channel quality indicator ,CQI index 1 to 15,numeric ordinal,"Estimated from raw GSMR metric “DL Rxqual"" "
+UL_SNR_wb,Wideband uplink signal-to-noise ratio ,dB,numeric,"Estimated from GSMR “UL Rxqual"" via CQI mapping and CQI-to-SNR table"
+CES,Conditional Emergency Stop state flag,0 or 1,binary integer,Derived privated ETCS events message   
+EStop,Emergency Stop state flag,0 or 1,binary integer,Derived privated ETCS events message   
+V_TRAIN,Train speed,km/h,numeric,
+NID_BG,balise group identifier,integer,integer categorical,local sensor on the railways track implying curent position of the train
+voice_DL_kb,Voice service downlink traffic demand,kb per 0.25 s step,numeric,Subbands correspond to RGB ( resource block group consisting of 4RB) as specified in 3GPP TS 36.213
+voice_UL_kb,Voice service uplink traffic demand,kb per 0.25 s step,numeric,
+etcs_DL_kb,ETCS service downlink traffic demand,kb per 0.25 s step,numeric,
+etcs_UL_kb,ETCS service uplink traffic demand,kb per 0.25 s step,numeric,
+ato_DL_kb,Automatic Train Operation service downlink traffic demand,kb per 0.25 s step,numeric,
+ato_UL_kb,Automatic Train Operation service uplink traffic demand,kb per 0.25 s step,numeric,
+remote_engine_ctrl_DL_kb,Remote engine control downlink traffic demand,kb per 0.25 s step,numeric,
+remote_engine_ctrl_UL_kb,Remote engine control uplink traffic demand,kb per 0.25 s step,numeric,
+pub_warn_DL_kb,Public warning service downlink traffic demand,kb per 0.25 s step,numeric,
+pub_warn_UL_kb,Public warning service uplink traffic demand,kb per 0.25 s step,numeric,
+telemetry_nc_DL_kb,Non-critical telemetry downlink traffic demand,kb per 0.25 s step,numeric,
+telemetry_nc_UL_kb,Non-critical telemetry uplink traffic demand,kb per 0.25 s step,numeric,
+equip_ctl_DL_kb,Equipment control downlink traffic demand,kb per 0.25 s step,numeric,
+equip_ctl_UL_kb,Equipment control uplink traffic demand,kb per 0.25 s step,numeric,
+asset_tel_DL_kb,Asset telemetry downlink traffic demand,kb per 0.25 s step,numeric,
+asset_tel_UL_kb,Asset telemetry uplink traffic demand,kb per 0.25 s step,numeric,
+pis_DL_kb,Passenger information system downlink traffic demand,kb per 0.25 s step,numeric,
+pis_UL_kb,Passenger information system uplink traffic demand,kb per 0.25 s step,numeric,
+video_surv_DL_kb,Video surveillance downlink traffic demand,kb per 0.25 s step,numeric,
+video_surv_UL_kb,Video surveillance uplink traffic demand,kb per 0.25 s step,numeric,
+critical_DL,Train-level total critical-slice downlink traffic demand,kb per 0.25 s step,numeric,
+critical_UL,Train-level total critical-slice uplink traffic demand,kb per 0.25 s step,numeric,
+perform_DL,Train-level total performance-slice downlink traffic demand,kb per 0.25 s step,numeric,
+perform_UL,Train-level total performance-slice uplink traffic demand,kb per 0.25 s step,numeric,
+CQI_sb1,Subband 1 downlink CQI,CQI index 1 to 15,numeric ordinal,Generated from CQI_wb by deterministic balanced subband expansion. 
+CQI_sb2,Subband 2 downlink CQI,CQI index 1 to 15,numeric ordinal,Subbands correspond to RGB ( resource block group consisting of 4RB) as specified in 3GPP TS 36.213
+CQI_sb3,Subband 3 downlink CQI,CQI index 1 to 15,numeric ordinal,
+CQI_sb4,Subband 4 downlink CQI,CQI index 1 to 15,numeric ordinal,
+CQI_sb5,Subband 5 downlink CQI,CQI index 1 to 15,numeric ordinal,
+CQI_sb6,Subband 6 downlink CQI,CQI index 1 to 15,numeric ordinal,
+CQI_sb7,Subband 7 downlink CQI,CQI index 1 to 15,numeric ordinal,
+UL_SNR_sb1,Subband 1 uplink signal-to-noise ratio,dB,numeric,Generated from UL_SNR_wb by nearest-CQI conversion and CQI-to-SNR table
+UL_SNR_sb2,Subband 2 uplink signal-to-noise ratio,dB,numeric,Subbands correspond to RGB ( resource block group consisting of 4RB) as specified in 3GPP TS 36.213
+UL_SNR_sb3,Subband 3 uplink signal-to-noise ratio,dB,numeric,
+UL_SNR_sb4,Subband 4 uplink signal-to-noise ratio,dB,numeric,
+UL_SNR_sb5,Subband 5 uplink signal-to-noise ratio,dB,numeric,
+UL_SNR_sb6,Subband 6 uplink signal-to-noise ratio,dB,numeric,
+UL_SNR_sb7,Subband 7 uplink signal-to-noise ratio,dB,numeric,
