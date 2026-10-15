@@ -1,0 +1,5 @@
+STG_Datasets/STGdata_A/data/STGdata_A.csv filter=lfs diff=lfs merge=lfs -text
+STG_Datasets/STGdata_B/data/STGdata_B.csv filter=lfs diff=lfs merge=lfs -text
+sim_outputs_v5_compare/STGdata_C/job_metrics_reactive.csv filter=lfs diff=lfs merge=lfs -text
+sim_outputs_v5_compare/STGdata_A/job_metrics_proreactive_drl.csv filter=lfs diff=lfs merge=lfs -text
+sim_outputs_v5_compare/STGdata_A/job_metrics_reactive.csv filter=lfs diff=lfs merge=lfs -text
